@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>WebXR-Demo</title>
+      <link rel="stylesheet" href="styles.css">
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet">
+</head>
+
+<body>
+
+      <h1 class="ibm-plex-serif-bold">WebXR Augmented Reality Demo</h1>
+
+      <div class="ripple-background">
+            <div class="circle xxlarge shade1"></div>
+            <div class="circle xlarge shade2"></div>
+            <div class="circle large shade3"></div>
+            <div class="circle medium shade4"></div>
+            <div class="circle small shade5"></div>
+      </div>
+
+      <main class="viewer-container ripple-background">
+            <model-viewer src="models/office-chair.glb" poster="models/office-chair.png" shadow-intensity="1" ar
+                  camera-controls touch-action="pan-y" alt="A 3D model carousel">
+
+                  <button slot="ar-button" id="ar-button">View in your space</button>
+                  <div id="ar-prompt"><img src="../../assets/hand.png"></div>
+                  <button id="ar-failure">AR is not tracking!</button>
+
+                  <div class="slider">
+                        <div class="slides">
+                              <button class="slide selected" onclick="switchSrc(this, 'Chair')"
+                                    style="background-image: url('models/office-chair.png');"></button>
+                              <button class="slide" onclick="switchSrc(this, 'batter-mixer')"
+                                    style="background-image: url('models/batter-mixer.png');"></button>
+                              <button class="slide" onclick="switchSrc(this, 'plant')"
+                                    style="background-image: url('models/plant.png');"></button>
+                              <button class="slide" onclick="switchSrc(this, 'toy-train')"
+                                    style="background-image: url('models/toy-train.png');"></button>
+                              <button class="slide" onclick="switchSrc(this, 'Canoe')"
+                                    style="background-image: url('models/canoe.png');"></button>
+                        </div>
+                  </div>
+            </model-viewer>
+      </main>
+
+      <script src="script.js" type="module"></script>
+</body>
+
+</html>
